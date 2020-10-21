@@ -38,7 +38,7 @@ const app = new Vue({
         this.getNotes()
     },
     methods: {
-        getNotes: function getNotes() {
+        getNotes: function() {
             let _this = this
             let url = "{{ route('get-all-note') }}"
             axios.get('/get-all-notes').then(function (res) {
@@ -47,7 +47,7 @@ const app = new Vue({
                 _this.isValidated = true
             }).catch(err => { console.log("Get all notes error: ", err) })
         },
-        upsertNote: function upsertNote() {
+        upsertNote: function () {
             let note = this.NoteModel
             this.isValidated = note.content !== ''
             if(this.isValidated) {
@@ -57,13 +57,13 @@ const app = new Vue({
                 }).catch(err => { console.log('Upsert note error: ', err) })
             }
         },
-        deleteNote: function deleteNote(note) {
+        deleteNote: function (note) {
             let _this = this
             axios.get('/delete-note/'+note.id).then(function (res) {
                 _this.getNotes()
             }).catch(err => { console.log('Delete note error: ', err) })
         },
-        fillNote: function fillNote(note) {
+        fillNote: function (note) {
             this.NoteModel = {id: note.id, content: note.content}
         }
     }
