@@ -22,15 +22,13 @@
                 <button class="form-group btn btn-primary" @click="upsertNote()">Add note</button>
             </div>
             <div class="note-area">
-                <div class="row">
-                    <div class="col-4 mt-2" v-for="note in notes">
-                        <div class="card">
-                            <div class="card-body">
-                                <p>@{{ note.content }}</p>
-                                <button class="btn btn-sm btn-primary" @click="fillNote(note)">Edit</button>
-                                <button class="btn btn-sm btn-danger ml-2" @click="deleteNote(note)">Delete</button>
-                            </div>
-                        </div>
+                <div class="row border-bottom mt-3" v-for="note in notes">
+                    <div class="col-10">
+                        <p>@{{ note.content }}</p>
+                    </div>
+                    <div class="col-2">
+                        <i class="fa fa-remove float-right ml-3" style="color: #c51f1a; cursor: pointer;" @click="deleteNote(note)"></i>
+                        <i class="fa fa-pencil float-right" style="cursor: pointer; color: #1d68a7" @click="fillNote(note)"></i>
                     </div>
                 </div>
             </div>
