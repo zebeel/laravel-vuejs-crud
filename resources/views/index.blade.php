@@ -16,7 +16,7 @@
                     <span>Content is required!</span>
                 </div>
                 <div class="form-group">
-                    <input type="text" name="content" id="content" class="form-control" v-model="NoteModel.content">
+                    <input type="text" name="content" id="content" class="form-control" v-model="NoteModel.content" v-on:keyup.enter="upsertNote()">
                     <input type="hidden" name="id" v-model="NoteModel.id">
                 </div>
                 <button class="form-group btn btn-primary" @click="upsertNote()">Add note</button>
